@@ -1,0 +1,23 @@
+{
+    "name": "xmeltrut/WordSearch",
+    "type": "library",
+    "description": "Word search generator.",
+    "homepage": "http://github.com/xmeltrut/WordSearch",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chris Worfolk",
+            "email": "chris@worfolk.co.uk",
+            "homepage": "http://www.worfolk.co.uk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "WordSearch\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.3.*",
+        "squizlabs/php_codesniffer": "2.6.*"
+    }
+}

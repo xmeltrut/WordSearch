@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Word Search" default="build">
+
+    <target name="build" depends="phpunit,phpcs"/>
+    
+    <target name="phpunit">
+        <exec executable="vendor/bin/phpunit" failonerror="true"/>
+    </target>
+    
+    <target name="phpcs">
+        <exec executable="vendor/bin/phpcs" failonerror="true">
+            <arg value="-p"/>
+            <arg value="--standard=ruleset.xml"/>
+            <arg value="src/"/>
+        </exec>
+    </target>
+
+</project>
