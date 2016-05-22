@@ -3,6 +3,21 @@ Word Search
 
 Word search generator written in PHP.
 
+Features:
+
+* Supports multiple words and grid sizes
+* Supports horizontal and vertical words
+* Supports intersecting words
+* English and Finnish alphabets
+
+Produces a grid for you to output, and list of answers.
+
+    HHEOÖ
+    EÖBAR
+    LSJFD
+    LLTOK
+    OPÖOU
+
 Install
 -------
 
