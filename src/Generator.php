@@ -61,7 +61,7 @@ class Generator
 
         // convert words to upper case
         array_walk($words, function (&$word) {
-            $word = strtoupper($word);
+            $word = Utils::uppercaseString($word);
         });
 
         // randomise words

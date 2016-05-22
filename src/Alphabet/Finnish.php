@@ -25,7 +25,7 @@ class Finnish extends Alphabet
         'u',
         'v',
         'y',
-        'Ä',
-        'Ö'
+        'ä',
+        'ö'
     ];
 }

@@ -18,4 +18,13 @@ class UtilsTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals(['a', 'b', 'c'], Utils::stringToArray('abc'));
     }
+
+    public function testUppercaseString()
+    {
+        $this->assertEquals('TEST', Utils::uppercaseString('test'));
+
+        if (function_exists('mb_strtoupper')) {
+            $this->assertEquals('ÄÖ', Utils::uppercaseString('äö'));
+        }
+    }
 }

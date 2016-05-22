@@ -39,4 +39,19 @@ class Utils
 
         return $arr;
     }
+
+    /**
+     * Convert a string to uppercase.
+     *
+     * @param string $str String.
+     * @return string
+     */
+    public static function uppercaseString($str)
+    {
+        if (function_exists('mb_strtoupper')) {
+            return mb_strtoupper($str);
+        }
+
+        return strtoupper($str);
+    }
 }

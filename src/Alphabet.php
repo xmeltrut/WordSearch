@@ -23,6 +23,6 @@ abstract class Alphabet
      */
     public function randomLetter()
     {
-        return strtoupper($this->alphabet[mt_rand(0, count($this->alphabet) - 1)]);
+        return Utils::uppercaseString($this->alphabet[mt_rand(0, count($this->alphabet) - 1)]);
     }
 }
