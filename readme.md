@@ -43,7 +43,12 @@ In Finnish, with a custom grid size:
     );
 
 The `Puzzle` object contains a `toArray` method for the puzzle grid
-and an iterable `WordList` object with the answers in.
+and an iterable `WordList` object with the answers in. You can use these
+to output the puzzle yourself, or use the HTML transformer.
+
+    $transformer = new WordSearch\Transformer\HtmlTransformer($puzzle);
+    echo $transformer->grid();
+    echo $transformer->wordList();
 
 Development
 -----------
