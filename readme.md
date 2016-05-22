@@ -2,6 +2,7 @@ Word Search
 ===========
 
 [![Build Status](https://travis-ci.org/xmeltrut/WordSearch.svg?branch=master)](https://travis-ci.org/xmeltrut/WordSearch)
+[![Latest Stable Version](https://poser.pugx.org/xmeltrut/word-search/v/stable)](https://packagist.org/packages/xmeltrut/word-search)
 [![License](https://poser.pugx.org/xmeltrut/word-search/license)](https://packagist.org/packages/xmeltrut/word-search)
 
 Word search generator written in PHP.
