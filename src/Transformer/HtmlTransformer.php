@@ -26,7 +26,7 @@ class HtmlTransformer
      */
     public function grid()
     {
-        $html = "<table>\n";
+        $html = "<table class=\"word-search\">\n";
 
         foreach ($this->puzzle->toArray() as $row) {
             $html .= "<tr>\n";
