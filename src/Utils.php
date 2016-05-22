@@ -49,7 +49,7 @@ class Utils
     public static function uppercaseString($str)
     {
         if (function_exists('mb_strtoupper')) {
-            return mb_strtoupper($str);
+            return mb_strtoupper($str, 'UTF-8');
         }
 
         return strtoupper($str);
