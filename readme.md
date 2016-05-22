@@ -1,7 +1,7 @@
 Word Search
 ===========
 
-Word search generator.
+Word search generator written in PHP.
 
 Install
 -------
