@@ -23,7 +23,10 @@ class UtilsTest extends \PHPUnit_Framework_TestCase
     public function testStringToArray()
     {
         $this->assertEquals(['a', 'b', 'c'], Utils::stringToArray('abc'));
-        $this->assertEquals(['ö'], Utils::stringToArray('ö'));
+
+        if (function_exists('mb_substr')) {
+            $this->assertEquals(['ö'], Utils::stringToArray('ö'));
+        }
     }
 
     public function testUppercaseString()
