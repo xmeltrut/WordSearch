@@ -3,7 +3,7 @@
 require 'vendor/autoload.php';
 
 $puzzle = WordSearch\Factory::create(
-    ['foo', 'bar', 'hello', 'world'],
+    ['föö', 'bar', 'hellö', 'wörld'],
     5,
     'fi'
 );

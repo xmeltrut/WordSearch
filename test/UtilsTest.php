@@ -14,9 +14,16 @@ class UtilsTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(3, $options);
     }
 
+    public function testStringLength()
+    {
+        $this->assertEquals(5, Utils::stringLength('hello'));
+        $this->assertEquals(5, Utils::stringLength('wörld'));
+    }
+
     public function testStringToArray()
     {
         $this->assertEquals(['a', 'b', 'c'], Utils::stringToArray('abc'));
+        $this->assertEquals(['ö'], Utils::stringToArray('ö'));
     }
 
     public function testUppercaseString()

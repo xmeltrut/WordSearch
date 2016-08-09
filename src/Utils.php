@@ -24,6 +24,21 @@ class Utils
     }
 
     /**
+     * Get the length of a string.
+     *
+     * @param string $str String.
+     * @return integer
+     */
+    public static function stringLength($str)
+    {
+        if (function_exists('mb_strlen')) {
+            return mb_strlen($str);
+        }
+
+        return strlen($str);
+    }
+
+    /**
      * Convert a string to an array of letters.
      *
      * @param string $str String.
@@ -33,8 +48,8 @@ class Utils
     {
         $arr = [];
 
-        for ($i = 0; $i < strlen($str); $i++) {
-            $arr[] = $str[$i];
+        for ($i = 0; $i < self::stringLength($str); $i++) {
+            $arr[] = function_exists('mb_substr') ? mb_substr($str, $i, 1) : $str[$i];
         }
 
         return $arr;

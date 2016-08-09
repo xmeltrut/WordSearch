@@ -9,3 +9,7 @@ Changelog
 1.0.2
 -----
 * Add a class to the HTML output
+
+1.0.3
+-----
+* Improve handling of foreign characters in injected words

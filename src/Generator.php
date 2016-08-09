@@ -54,7 +54,7 @@ class Generator
 
         // remove any words that are too long
         foreach ($words as $key => $word) {
-            if (strlen($word) > $size) {
+            if (Utils::stringLength($word) > $size) {
                 unset($words[$key]);
             }
         }
@@ -119,7 +119,7 @@ class Generator
                 shuffle($this->rowsAvailable);
 
                 foreach ($this->rowsAvailable as $key => $row) {
-                    $maxStart = ($this->size - strlen($word));
+                    $maxStart = ($this->size - Utils::stringLength($word));
                     $startOptions = Utils::integerAsOptions($maxStart);
                     foreach ($startOptions as $startIndex) {
                         if ($this->tryWordInRow($word, $row, $startIndex)) {
@@ -133,7 +133,7 @@ class Generator
                 shuffle($this->columnsAvailable);
 
                 foreach ($this->columnsAvailable as $key => $column) {
-                    $maxStart = ($this->size - strlen($word));
+                    $maxStart = ($this->size - Utils::stringLength($word));
                     $startOptions = Utils::integerAsOptions($maxStart);
                     foreach ($startOptions as $startIndex) {
                         if ($this->tryWordInColumn($word, $column, $startIndex)) {

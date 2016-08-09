@@ -101,8 +101,8 @@ class WordList implements \Iterator, \Countable
         $wordLength = 1;
 
         foreach ($this->words as $word) {
-            if (strlen($word->word) > $wordLength) {
-                $wordLength = strlen($word->word);
+            if (Utils::stringLength($word->word) > $wordLength) {
+                $wordLength = Utils::stringLength($word->word);
             }
         }
 
