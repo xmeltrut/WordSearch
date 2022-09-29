@@ -28,7 +28,7 @@ Install
 Install via Composer:
 
 ```bash
-$ composer require xmeltrut/WordSearch "^1.0"
+$ composer require xmeltrut/word-search "^1.0"
 ```
 
 Usage
