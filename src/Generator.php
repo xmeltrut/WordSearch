@@ -7,45 +7,46 @@ class Generator
     /**
      * @var array Words to insert.
      */
-    private $words;
+    private array $words;
 
     /**
      * @var integer Size of grid.
      */
-    private $size;
+    private string|int|float $size;
 
     /**
      * @var array Grid object.
      */
-    private $grid = [];
+    private array $grid = [];
 
     /**
      * @var array Track unused rows.
      */
-    private $rowsAvailable = [];
+    private array $rowsAvailable = [];
 
     /**
      * @var array Track unused columns.
      */
-    private $columnsAvailable = [];
+    private array $columnsAvailable = [];
 
     /**
      * @var WordList Words added.
      */
-    private $wordList;
+    private WordList $wordList;
 
     /**
      * @var Alphabet
      */
-    private $alphabet;
+    private Alphabet|Alphabet\English $alphabet;
 
-    /**
-     * Constructor.
-     *
-     * @param array   $words List of words.
-     * @param integer $size  Rows/columns.
-     */
-    public function __construct(array $words, $size = 15, Alphabet $alphabet = null)
+  /**
+   * @param array $words
+   * @param int $size
+   * @param \WordSearch\Alphabet|NULL $alphabet
+   *
+   * @throws \WordSearch\Exception
+   */
+    public function __construct(array $words, int $size = 15, ?Alphabet $alphabet = null)
     {
         // validate the grid size
         if (!is_numeric($size) || $size < 1) {

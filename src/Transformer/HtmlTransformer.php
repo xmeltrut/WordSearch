@@ -14,9 +14,8 @@ class HtmlTransformer
      *
      * @param Puzzle $puzzle Puzzle.
      */
-    public function __construct(Puzzle $puzzle)
+    public function __construct(protected Puzzle $puzzle)
     {
-        $this->puzzle = $puzzle;
     }
 
     /**
@@ -24,7 +23,7 @@ class HtmlTransformer
      *
      * @return string
      */
-    public function grid()
+    public function grid(): string
     {
         $html = "<table class=\"word-search\">\n";
 
@@ -46,7 +45,7 @@ class HtmlTransformer
      *
      * @return string
      */
-    public function wordList()
+    public function wordList(): string
     {
         $html = "<ul>\n";
 
