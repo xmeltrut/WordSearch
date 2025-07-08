@@ -21,7 +21,7 @@ class HtmlTransformer
      */
     public function __construct(Puzzle $puzzle)
     {
-      $this->puzzle = $puzzle;
+        $this->puzzle = $puzzle;
     }
 
     /**
