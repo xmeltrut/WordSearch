@@ -10,12 +10,18 @@ use WordSearch\Puzzle;
 class HtmlTransformer
 {
     /**
+     * @var \WordSearch\Puzzle
+     */
+    protected Puzzle $puzzle;
+
+    /**
      * Constructor. Expects a Puzzle.
      *
      * @param Puzzle $puzzle Puzzle.
      */
-    public function __construct(protected Puzzle $puzzle)
+    public function __construct(Puzzle $puzzle)
     {
+      $this->puzzle = $puzzle;
     }
 
     /**
