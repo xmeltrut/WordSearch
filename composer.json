@@ -9,10 +9,6 @@
             "name": "Chris Worfolk",
             "email": "chris@worfolk.co.uk",
             "homepage": "http://www.worfolk.co.uk"
-        },
-        {
-          "name": "Martin Yde",
-          "email": "yde001@gmail.com"
         }
     ],
     "autoload": {

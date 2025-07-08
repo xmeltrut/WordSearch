@@ -14,7 +14,7 @@ class Factory
      */
     public static function create(array $words, $size = 15, $lang = 'en')
     {
-        $alphabet = ($lang == 'fi') ? new Alphabet\Finnish : null;
+        $alphabet = ($lang == 'fi') ? new Alphabet\Finnish() : null;
         $generator = new Generator($words, $size, $alphabet);
         return $generator->generate();
     }

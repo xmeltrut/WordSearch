@@ -1,6 +1,11 @@
 Changelog
 =========
 
+Unreleased
+-----
+* Added github actions
+* Updated code to work on php ^8.3
+
 1.0.1
 -----
 * Specifing PHP version in dependency list

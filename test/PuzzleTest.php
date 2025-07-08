@@ -10,7 +10,7 @@ class PuzzleTest extends TestCase
 {
     public function testExports()
     {
-        $puzzle = new Puzzle([['A']], new WordList);
+        $puzzle = new Puzzle([['A']], new WordList());
 
         $this->assertIsArray($puzzle->toArray());
         $this->assertIsString($puzzle->__toString());

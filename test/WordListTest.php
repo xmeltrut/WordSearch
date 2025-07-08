@@ -9,7 +9,7 @@ class WordListTest extends TestCase
 {
     public function testClass()
     {
-        $wordList = new WordList;
+        $wordList = new WordList();
         $wordList->add('test1', 1, 2);
         $wordList->add('test2', 3, 4);
 

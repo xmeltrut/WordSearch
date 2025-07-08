@@ -9,7 +9,7 @@ class AlphabetTest extends TestCase
 {
     public function testRandomLetter()
     {
-        $alphabet = new English;
+        $alphabet = new English();
         $letter = $alphabet->randomLetter();
 
         $this->assertIsString($letter);

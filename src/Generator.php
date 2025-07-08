@@ -71,8 +71,8 @@ class Generator
         // setup instance variables
         $this->words = $words;
         $this->size = $size;
-        $this->wordList = new WordList;
-        $this->alphabet = ($alphabet) ? $alphabet : new Alphabet\English;
+        $this->wordList = new WordList();
+        $this->alphabet = ($alphabet) ? $alphabet : new Alphabet\English();
     }
 
     /**
@@ -160,7 +160,8 @@ class Generator
         $wordArray = Utils::stringToArray($word);
 
         foreach ($wordArray as $letter) {
-            if ($this->grid[$row][$col] !== null &&
+            if (
+                $this->grid[$row][$col] !== null &&
                 $this->grid[$row][$col] !== $letter
             ) {
                 return false;
@@ -202,7 +203,8 @@ class Generator
         $wordArray = Utils::stringToArray($word);
 
         foreach ($wordArray as $letter) {
-            if ($this->grid[$row][$col] !== null &&
+            if (
+                $this->grid[$row][$col] !== null &&
                 $this->grid[$row][$col] !== $letter
             ) {
                 return false;
