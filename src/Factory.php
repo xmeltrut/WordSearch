@@ -15,7 +15,7 @@ class Factory
    * @return Puzzle
    * @throws \WordSearch\Exception
    */
-    public static function create(array $words, int $size = 15, $lang = 'en'): Puzzle {
+    public static function create(array $words, int $size = 15, string $lang = 'en'): Puzzle {
         $alphabet = ($lang == 'fi') ? new Alphabet\Finnish() : null;
         $generator = new Generator($words, $size, $alphabet);
         return $generator->generate();
