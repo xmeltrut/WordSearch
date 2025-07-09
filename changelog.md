@@ -4,7 +4,7 @@ Changelog
 Unreleased
 -----
 * Added github actions
-* Updated code to work on php ^8.3
+* Updated code to work on php ^8.1
 
 1.0.1
 -----
