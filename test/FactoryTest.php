@@ -2,9 +2,10 @@
 
 namespace WordSearch\Test;
 
+use PHPUnit\Framework\TestCase;
 use WordSearch\Factory;
 
-class FactoryTest extends \PHPUnit_Framework_TestCase
+class FactoryTest extends TestCase
 {
     public function testCreate()
     {

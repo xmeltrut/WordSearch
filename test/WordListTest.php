@@ -2,17 +2,18 @@
 
 namespace WordSearch\Test;
 
+use PHPUnit\Framework\TestCase;
 use WordSearch\WordList;
 
-class WordListTest extends \PHPUnit_Framework_TestCase
+class WordListTest extends TestCase
 {
     public function testClass()
     {
-        $wordList = new WordList;
+        $wordList = new WordList();
         $wordList->add('test1', 1, 2);
         $wordList->add('test2', 3, 4);
 
-        $this->assertInternalType('string', $wordList->__toString());
+        $this->assertIsString($wordList->__toString());
         $this->assertCount(2, $wordList);
 
         $words = [];

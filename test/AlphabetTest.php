@@ -2,16 +2,17 @@
 
 namespace WordSearch\Test;
 
+use PHPUnit\Framework\TestCase;
 use WordSearch\Alphabet\English;
 
-class AlphabetTest extends \PHPUnit_Framework_TestCase
+class AlphabetTest extends TestCase
 {
     public function testRandomLetter()
     {
-        $alphabet = new English;
+        $alphabet = new English();
         $letter = $alphabet->randomLetter();
 
-        $this->assertInternalType('string', $letter);
+        $this->assertIsString($letter);
         $this->assertEquals(1, strlen($letter));
     }
 }

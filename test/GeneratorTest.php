@@ -2,14 +2,16 @@
 
 namespace WordSearch\Test;
 
+use PHPUnit\Framework\TestCase;
 use WordSearch\Generator;
+use WordSearch\Puzzle;
 
-class GeneratorTest extends \PHPUnit_Framework_TestCase
+class GeneratorTest extends TestCase
 {
     public function testGenerate()
     {
         $generator = new Generator(['foo', 'bar']);
 
-        $this->assertInstanceOf('\\WordSearch\\Puzzle', $generator->generate());
+        $this->assertInstanceOf(Puzzle::class, $generator->generate());
     }
 }

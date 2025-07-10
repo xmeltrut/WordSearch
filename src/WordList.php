@@ -35,7 +35,7 @@ class WordList implements \Iterator, \Countable
      *
      * @return integer
      */
-    public function count()
+    public function count(): int
     {
         return count($this->words);
     }
@@ -45,7 +45,7 @@ class WordList implements \Iterator, \Countable
      *
      * @return void
      */
-    public function rewind()
+    public function rewind(): void
     {
         $this->position = 0;
     }
@@ -55,7 +55,7 @@ class WordList implements \Iterator, \Countable
      *
      * @return integer
      */
-    public function key()
+    public function key(): int
     {
         return $this->position;
     }
@@ -65,7 +65,7 @@ class WordList implements \Iterator, \Countable
      *
      * @return void
      */
-    public function next()
+    public function next(): void
     {
         ++$this->position;
     }
@@ -75,7 +75,7 @@ class WordList implements \Iterator, \Countable
      *
      * @return boolean
      */
-    public function valid()
+    public function valid(): bool
     {
         return isset($this->words[$this->position]);
     }
@@ -85,7 +85,7 @@ class WordList implements \Iterator, \Countable
      *
      * @return Word
      */
-    public function current()
+    public function current(): Word
     {
         return $this->words[$this->position];
     }
@@ -95,7 +95,7 @@ class WordList implements \Iterator, \Countable
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         $str = '';
         $wordLength = 1;

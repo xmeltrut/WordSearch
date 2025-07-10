@@ -2,9 +2,10 @@
 
 namespace WordSearch\Test;
 
+use PHPUnit\Framework\TestCase;
 use WordSearch\Word;
 
-class WordTest extends \PHPUnit_Framework_TestCase
+class WordTest extends TestCase
 {
     public function testProperties()
     {

@@ -1,0 +1,147 @@
+on: pull_request
+name: Review
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    name: Changelog should be updated
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - name: Git fetch
+        run: git fetch
+
+      - name: Check that changelog has been updated.
+        run: git diff --exit-code origin/${{ github.base_ref }} -- changelog.md && exit 1 || exit 0
+
+  test-composer-files:
+    name: Validate composer
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: [ '7.4', '8.1', '8.2', '8.3', '8.4' ]
+        dependency-version: [ prefer-stable ]
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: json
+          coverage: none
+          tools: composer:v2
+      # https://github.com/shivammathur/setup-php#cache-composer-dependencies
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - name: Validate composer files
+        run: |
+          composer validate --strict composer.json
+          # Check that dependencies resolve.
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
+
+  php-coding-standards:
+    name: PHP coding standards
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: [ '7.4', '8.1', '8.2', '8.3', '8.4' ]
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: json
+          coverage: none
+          tools: composer:v2
+      # https://github.com/shivammathur/setup-php#cache-composer-dependencies
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - name: Install Dependencies
+        run: |
+          composer install --no-interaction --no-progress
+      - name: PHPCS
+        run: |
+          composer coding-standards-check
+
+  php-code-analysis:
+    name: PHP code analysis
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: [ '7.4', '8.1', '8.2', '8.3', '8.4' ]
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: json
+          coverage: none
+          tools: composer:v2
+      # https://github.com/shivammathur/setup-php#cache-composer-dependencies
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - name: Install Dependencies
+        run: |
+          composer install --no-interaction --no-progress
+      - name: Code analysis
+        run: |
+          composer code-analysis
+
+  run-tests:
+    name: Run tests for php 8+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: [ '8.1', '8.2', '8.3', '8.4' ]
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: json
+          coverage: none
+          tools: composer:v2
+      # https://github.com/shivammathur/setup-php#cache-composer-dependencies
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - name: Install Dependencies
+        run: |
+          composer install --no-interaction --no-progress
+      - name: Run tests
+        run: |
+          composer run-tests

@@ -2,10 +2,11 @@
 
 namespace WordSearch\Test\Transformer;
 
+use PHPUnit\Framework\TestCase;
 use WordSearch\Transformer\HtmlTransformer;
 use WordSearch\Word;
 
-class HtmlTransformerTest extends \PHPUnit_Framework_TestCase
+class HtmlTransformerTest extends TestCase
 {
     public function testTransform()
     {
@@ -21,11 +22,11 @@ class HtmlTransformerTest extends \PHPUnit_Framework_TestCase
         $transformer = new HtmlTransformer($puzzle);
 
         $htmlGrid = $transformer->grid();
-        $this->assertInternalType('string', $transformer->grid());
+        $this->assertIsString($transformer->grid());
 
         $htmlWordList = $transformer->wordList();
-        $this->assertInternalType('string', $transformer->wordList());
-        $this->assertRegexp('/test1/', $htmlWordList);
-        $this->assertRegexp('/test2/', $htmlWordList);
+        $this->assertIsString($transformer->wordList());
+        $this->assertMatchesRegularExpression('/test1/', $htmlWordList);
+        $this->assertMatchesRegularExpression('/test2/', $htmlWordList);
     }
 }

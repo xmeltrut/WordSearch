@@ -10,6 +10,11 @@ use WordSearch\Puzzle;
 class HtmlTransformer
 {
     /**
+     * @var \WordSearch\Puzzle
+     */
+    protected Puzzle $puzzle;
+
+    /**
      * Constructor. Expects a Puzzle.
      *
      * @param Puzzle $puzzle Puzzle.
@@ -24,7 +29,7 @@ class HtmlTransformer
      *
      * @return string
      */
-    public function grid()
+    public function grid(): string
     {
         $html = "<table class=\"word-search\">\n";
 
@@ -46,7 +51,7 @@ class HtmlTransformer
      *
      * @return string
      */
-    public function wordList()
+    public function wordList(): string
     {
         $html = "<ul>\n";
 

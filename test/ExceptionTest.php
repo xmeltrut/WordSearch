@@ -2,9 +2,10 @@
 
 namespace WordSearch\Test;
 
+use PHPUnit\Framework\TestCase;
 use WordSearch\Exception;
 
-class ExceptionTest extends \PHPUnit_Framework_TestCase
+class ExceptionTest extends TestCase
 {
     public function testException()
     {

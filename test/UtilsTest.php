@@ -2,15 +2,16 @@
 
 namespace WordSearch\Test;
 
+use PHPUnit\Framework\TestCase;
 use WordSearch\Utils;
 
-class UtilsTest extends \PHPUnit_Framework_TestCase
+class UtilsTest extends TestCase
 {
     public function testIntegerAsOptions()
     {
         $options = Utils::integerAsOptions(2);
 
-        $this->assertInternalType('array', $options);
+        $this->assertIsArray($options);
         $this->assertCount(3, $options);
     }
 

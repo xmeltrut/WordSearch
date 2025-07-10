@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="PHP_CodeSniffer">
+  <description>Code Sniffer configuration</description>
+
+  <file>src</file>
+  <file>test</file>
+
+  <!-- Show progress of the run -->
+  <arg value="p"/>
+
+  <arg name="extensions" value="php,module,inc,install,test,profile,theme,css,info,txt,yml"/>
+
+  <!-- Add a reference to a standard -->
+  <rule ref="PSR12"/>
+</ruleset>
